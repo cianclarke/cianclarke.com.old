@@ -1,0 +1,41 @@
+<link href="/stylesheets/gallery.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/theme.css" rel="stylesheet" type="text/css">
+<% for (var i=0; i<breadcrumb.length; i++) { %>
+<% if (i==breadcrumb.length-1){ %>
+<%= breadcrumb[i].name %>
+<% }else{ %>
+<a href="<%= breadcrumb[i].url %>"> <%= breadcrumb[i].name %> &raquo; </a>
+<% } %>
+
+<% } %>
+
+<h1><%= photo.name %></h1>
+
+<img src="/<%= directory %>/<%= photo.path %>" alt="<%= photo.name%>"><br />
+
+<% if (photo.exif && photo.exif.Description){ %>
+<%= photo.exif.Description%>
+<% }else{ %>
+<%= photo.name%>
+<% } %>
+
+
+<% if (photo.exif){ %>
+<section class="info">
+  <h2>Info</h2>
+  <table>
+    <% for (var key in photo.exif){ %>
+    <% if (key!="Description"){ %>
+    <tr>
+      <td>
+        <%= key %>
+      </td>
+      <td>
+        <%= photo.exif[key] %>
+      </td>
+    </tr>
+    <% } %>
+    <% } %>
+  </table>
+</section>
+<% } %>

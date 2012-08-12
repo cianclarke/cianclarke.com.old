@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+  <title>Cian Clarke - Web Design, Photography & Technology, Waterford, Ireland.</title>
+  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  </style>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <h1>cian clarke</h1>
+    <ul class="inlineList">
+      <li><a href="/" class="<% if (v=="home") { %>active<% } %> >">Home</a></li>
+      <li><a href="/gallery" class="<% if (v=="gallery") { %>active<% } %> >">Photos</a></li>
+      <li><a href="/blog" class="<% if (v=="blog") { %>active<% } %> >">Blog</a></li>
+      <li><a href="/webdesign" class="<% if (v=="webdesign") { %>active<% } %> >">Web Design</a></li>
+      <li><a href="http://www.github.com/cianclarke" class="<% if (v=="contact") { %>active<% } %> >">CV</a></li>
+      <li><a href="/contact" class="<% if (v=="contact") { %>active<% } %> >">Contact</a></li>
+    </ul>
+  </div>
+
+  <%- body %>
+
+</div>
+
+</body>
+</html>
