@@ -1,0 +1,30 @@
+<div class="panel floatLeft talks">
+  <img src="images/inis.png" height="550px"/>
+</div>
+
+
+<div class="panel floatRight beers">
+  <h2>Beers</h2>
+  <h3>On Tap</h3>
+  <p>Beers kegged & ready to drink</p>
+  <ul>
+    <% if (beers.ontap.length === 0) { %>
+      No beers on tap right now
+    <% } %>
+    <% beers.ontap.forEach(function(beer){ %>
+        <% include beer %>
+    <% }); %>
+  </ul>
+  
+  <h3>On Deck</h3>
+  <p>Beers fermenting & ready to drink soon</p>
+  <ul>
+    <% if (beers.ondeck.length === 0) { %>
+      <li>No beers on deck right now</li>
+    <% } %>
+    <% beers.ondeck.forEach(function(beer, idx){ %>
+        <% include beer %>
+    <% }); %>
+  </ul>
+
+</div>

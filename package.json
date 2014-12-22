@@ -5,11 +5,13 @@
   "scripts": {
     "start": "node app"
   },
+  "main" : "app.js",
   "dependencies": {
-    "express": "3.0.0beta2",
+    "beersmithtaplist": "0.0.5",
     "ejs": "*",
-    "express-partials" : "*",
-    "less-middleware": "*",
-    "node-gallery" : "*"
+    "express": "3.0.0beta2",
+    "express-partials": "0.0.5",
+    "less-middleware": "0.1.5",
+    "node-gallery": "0.3.2"
   }
 }

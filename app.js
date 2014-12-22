@@ -14,7 +14,8 @@ util = require('util');
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000);
+  app.set('host', process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
@@ -38,12 +39,14 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/home', routes.index);
 app.get('/blog', routes.blog);
+app.get('/talks', routes.talks);
+app.get('/beers', routes.beers);
 app.get('/contact', routes.contact);
 app.get('/cv', routes.cv);
 app.get('/gallery*', routes.gallery);
-app.get('/webdesign', routes.webdesign);
+app.get('/talks', routes.talks);
 
 
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), app.get('host'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

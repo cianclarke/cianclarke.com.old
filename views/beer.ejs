@@ -1,0 +1,27 @@
+<li>
+        <strong class="name"><%= beer.name %></strong><br />
+        <% var abv = (beer.og_measured - beer.fg_measured) * 131.25; %>
+        <strong>Gravity:</strong> <%= beer.og_measured %>
+        <strong>ABV:</strong> <%= Math.round(abv * 100) / 100 %> %
+        <br />
+        
+        <strong>Grain: </strong>
+        <% beer.grain.forEach(function(ing, idx){ %>
+          <%= ing.name %>
+          <% if (idx < beer.grain.length-1){ %>
+            ,
+            <% } %>
+        <% }); %>
+        <br />
+        
+        <strong>Hops: </strong>
+        <% if (beer.hops.forEach){ %>
+          <% beer.hops.forEach(function(ing, idx){ %>
+            <%= ing.name %>
+            <% if (idx < beer.hops.length-1){ %>
+            ,
+            <% } %>
+          <% }); %>
+        <% } %>
+        <br />
+</li>
