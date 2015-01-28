@@ -7,34 +7,26 @@ var express = require('express'),
 gallery = require('node-gallery'),
 routes = require('./routes'),
 partials = require('express-partials'),
+ejs = require('ejs').__express,
+path = require('path');
+
+bodyParser = require('body-parser');
 
 http = require('http'),
 util = require('util');
 
-var app = express();
-
-app.configure(function(){
-  app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000);
-  app.set('host', process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
-  app.use(express.static(__dirname + '/public'));
-  app.use(gallery.middleware({static: 'public', directory: '/photos', rootURL: "/gallery"}));
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(partials());
-  app.use(express.methodOverride());
-  app.use(app.router);
-
-
-
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
+var app = express(),
+port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
+host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+views = __dirname + '/views';
+app.use(require('less-middleware')({ src: __dirname + '/public' }));
+app.use(express.static(__dirname + '/public'));
+app.use(gallery.middleware({static: 'public', directory: '/photos', rootURL: "/gallery"}));
+app.use(bodyParser());
+app.use(partials());
+app.engine('.ejs', ejs);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.get('/', routes.index);
 app.get('/home', routes.index);
@@ -47,6 +39,6 @@ app.get('/gallery*', routes.gallery);
 app.get('/talks', routes.talks);
 
 
-app.listen(app.get('port'), app.get('host'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+app.listen(port, host, function(){
+  console.log("Express server listening on port " + port);
 });
