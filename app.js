@@ -21,9 +21,10 @@ host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
 views = __dirname + '/views';
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(__dirname + '/public'));
-app.use('/gallery', gallery({urlRoot: 'gallery', staticFiles: '/public/photos', title : 'Gallery'}).middleware);
 app.use(bodyParser());
 app.use(partials());
+app.use('/gallery', gallery({urlRoot: 'gallery', staticFiles: '/public/photos', title : 'Gallery', render : false}), routes.gallery);
+
 app.engine('.ejs', ejs);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

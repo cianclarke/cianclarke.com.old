@@ -34,12 +34,9 @@ exports.contact = function(req, res){
   res.render('contact', { v: 'contact' });
 };
 exports.gallery = function(req, res){
-  // We automatically have the gallery data available to us in req thanks to middleware
-  var data = req.gallery;
-  // and we can res.render using one of the supplied templates (photo.ejs/album.ejs) or one of our own
-
-  data.v = 'gallery';
-  res.render(data.type + '.ejs', data);
+  console.log('gallery route')
+  console.log(req.data);
+  res.render('gallery.ejs', { v : 'gallery', gallery : req.html });
 };
 
 exports.cv = function(req, res){

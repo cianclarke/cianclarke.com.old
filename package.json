@@ -13,6 +13,6 @@
     "express": "4.10.7",
     "express-partials": "0.0.5",
     "less-middleware": "0.1.5",
-    "node-gallery": "^0.3.2"
+    "node-gallery": "1.0.0"
   }
 }
