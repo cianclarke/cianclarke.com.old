@@ -1,7 +1,8 @@
-var path = require('path');
-var ghostConfig = require(path.join(__dirname, 'node_modules/ghost/config.example.js'));
-
-var url = 'http://127.0.0.1:3000/blog',
+var path = require('path'),
+ghostConfig = require(path.join(__dirname, 'node_modules/ghost/config.example.js')),
+port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
+host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+url = 'http://' + host + ':' + port + '/blog',
 dbfile = path.join(__dirname, './content/data/ghost-dev.db');
 
 ghostConfig.development.url = url;

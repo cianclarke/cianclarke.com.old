@@ -18,7 +18,7 @@ util = require('util');
 
 var app = express(),
 port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
-host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
 views = __dirname + '/views';
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(__dirname + '/public'));
@@ -48,8 +48,6 @@ ghost({ config : path.join(__dirname, 'ghostConfig.js') }).then(function (ghostS
   app.get('/talks', routes.talks);
 
 });
-
-
 
 
 app.listen(port, host, function(){
