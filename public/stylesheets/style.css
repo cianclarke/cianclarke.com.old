@@ -5,7 +5,6 @@ body {
   border-top: 4px solid #424247;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
-  text-shadow: 0 2px #FFFFFF;
 }
 html,
 body {
@@ -28,9 +27,6 @@ a,
 a:link,
 a:visited {
   color: #0074D1;
-}
-a:hover {
-  text-decoration: underline;
 }
 form input {
   margin: 6px;
@@ -149,15 +145,12 @@ form input {
 .wrapper,
 header .header.blogSubHeader {
   margin: auto;
-  height: 100%;
   width: 980px;
 }
-#twitterq {
-  width: 100%;
-}
-#twitterq,
-#twitterSub {
-  font-size: 1.6em;
+header:not(.no-cover) .header.blogSubHeader,
+header:not(.no-cover) .header.blogSubHeader a:not(.active) {
+  color: white;
+  font-weight: 100;
 }
 .header {
   top: 0px;
@@ -171,12 +164,20 @@ header .header.blogSubHeader {
   padding: 0;
   line-height: normal;
 }
+.header a:link,
+:visited,
+:hover,
+:activea:link,
+:visited,
+:hover,
+:active {
+  text-decoration: none;
+}
 .header a.active,
-.users a.active {
+header .header li a.active {
   color: #0074d1;
 }
-.header a,
-.users a {
+.header a {
   color: #333;
 }
 .header ul {
@@ -311,4 +312,17 @@ header .header.blogSubHeader {
 }
 .beers ul li strong.name {
   font-size: 1.2em;
+}
+.vertical {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 25%;
+}
+.vertical .page-description {
+  font-weight: 100;
+}
+.vertical h1.page-title {
+  font-size: 2em;
+  font-weight: 100;
 }

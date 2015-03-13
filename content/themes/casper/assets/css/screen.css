@@ -401,12 +401,6 @@ margin on the iframe, cause it breaks stuff. */
     margin: 0 auto;
 }
 
-/* Centres vertically yo. (IE8+) */
-.vertical {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 /* Wraps the main content & footer */
 .site-wrapper {
     position: relative;
@@ -807,7 +801,6 @@ body.nav-opened .menu-button .word {
     font-size: 2rem;
     line-height: 1.5em;
     font-weight: 400;
-    font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
     color: rgba(255,255,255,0.8);
 }
@@ -915,10 +908,6 @@ body:not(.post-template) .post-title {
 .post-meta a {
     color: #9EABB3;
     text-decoration: none;
-}
-
-.post-meta a:hover {
-    text-decoration: underline;
 }
 
 .user-meta {
@@ -1081,9 +1070,6 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer h4 a:hover {
-    text-decoration: underline;
-}
 
 /* Drop the share links in the space to the right.
    Doing it like this means it's easier for the author bio
@@ -1222,7 +1208,6 @@ body:not(.post-template) .post-title {
 /* Location, website, and link */
 .author-profile .author-meta {
     margin: 2rem 0;
-    font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
     font-size: 1.7rem;
 }
