@@ -27,10 +27,6 @@ app.use(bodyParser());
 
 
 ghost({ config : path.join(__dirname, 'ghostConfig.js') }).then(function (ghostServer) {
-  console.log('got paths')
-  console.log(ghostServer.config.paths);
-  console.log('got subdir')
-  console.log(ghostServer.config.paths.subdir);
   app.use('/blog', ghostServer.rootApp);
   ghostServer.start(app);
 
