@@ -20,7 +20,7 @@ var app = express(),
 port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
 host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
 views = __dirname + '/views';
-app.use(require('less-middleware')({ src: __dirname + '/public' }));
+app.use(require('less-middleware')(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
 
