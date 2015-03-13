@@ -1,5 +1,5 @@
 var path = require('path');
-var ghostConfig = require(path.join(__dirname, 'node_modules/ghost/config.js'));
+var ghostConfig = require(path.join(__dirname, 'node_modules/ghost/config.example.js'));
 
 var url = 'http://127.0.0.1:3000/blog',
 dbfile = path.join(__dirname, './content/data/ghost-dev.db');
