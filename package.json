@@ -7,11 +7,12 @@
   },
   "main": "app.js",
   "dependencies": {
-    "beersmithtaplist": "0.0.5",
+    "beersmithtaplist": "0.0.6",
     "body-parser": "^1.10.2",
     "ejs": "^2.2.3",
     "express": "4.10.7",
     "express-partials": "0.0.5",
+    "ghost": "^0.5.8",
     "less-middleware": "0.1.5",
     "node-gallery": "1.0.0"
   }

@@ -8,6 +8,8 @@ exports.index = function(req, res){
 };
 
 exports.blog = function(req, res){
+  
+  
   res.render('blog', { v: 'blog' });
 };
 
@@ -28,7 +30,6 @@ exports.beers = function(req, res){
   });
   
 };
-
 
 exports.contact = function(req, res){
   res.render('contact', { v: 'contact' });

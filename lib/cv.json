@@ -1,0 +1,13 @@
+module.exports = {
+  name : "Cian Clarke",
+  github : "cianclarke",
+  twitter : "cianclarke",
+  nationality: "Irish",
+  skills : {
+    "Web Technologies" : ['HTML5', 'CSS3', 'JQuery', 'Backbone', 'Bootstrap', 'Express', 'Sencha', 'Dojo', 'Aria Accessibility', 'REST', 'SOAP'],
+    "Proficient in" : ['JavaScript', 'Node.js', 'Objective C', 'PHP', 'MySQL', 'Bash', 'Java', 'C++'],
+    "Knowledge of" : ['Python', 'Ruby', 'C#', 'SOQL', 'Go'],
+    "Experience with" : ['Docker', 'Websockets', 'AWS', 'CloudFoundry', 'OpenShift', 'Heroku', 'Continuous Integration', 'Unit Testing', 'Acceptance Testing', 
+    'Load Testing', 'Object Orientation', 'Agile', 'MVC', 'OpenCV', 'OpenGL', 'Git', 'RTC', 'XCode', 'Apache']
+  }
+};

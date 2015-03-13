@@ -1,7 +1,7 @@
 <li>
         <strong class="name"><%= beer.name %></strong><br />
         <% var abv = (beer.og_measured - beer.fg_measured) * 131.25; %>
-        <strong>Gravity:</strong> <%= beer.og_measured %>
+        <strong>OG:</strong> <%= beer.og_measured %>
         <strong>ABV:</strong> <%= Math.round(abv * 100) / 100 %> %
         <br />
         

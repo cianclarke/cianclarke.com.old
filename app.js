@@ -8,6 +8,7 @@ gallery = require('node-gallery'),
 routes = require('./routes'),
 partials = require('express-partials'),
 ejs = require('ejs').__express,
+ghost = require('ghost'),
 path = require('path');
 
 bodyParser = require('body-parser');
@@ -22,22 +23,37 @@ views = __dirname + '/views';
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
-app.use(partials());
-app.use('/gallery', gallery({urlRoot: 'gallery', staticFiles: '/public/photos', title : 'Gallery', render : false}), routes.gallery);
 
-app.engine('.ejs', ejs);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
-app.get('/', routes.index);
-app.get('/home', routes.index);
-app.get('/blog', routes.blog);
-app.get('/talks', routes.talks);
-app.get('/beers', routes.beers);
-app.get('/contact', routes.contact);
-app.get('/cv', routes.cv);
-app.get('/gallery*', routes.gallery);
-app.get('/talks', routes.talks);
+
+ghost({ config : path.join(__dirname, 'ghostConfig.js') }).then(function (ghostServer) {
+  console.log('got paths')
+  console.log(ghostServer.config.paths);
+  console.log('got subdir')
+  console.log(ghostServer.config.paths.subdir);
+  app.use('/blog', ghostServer.rootApp);
+  ghostServer.start(app);
+
+  // Setup the rest of the application
+  app.use(partials());
+  app.use('/gallery', gallery({urlRoot: 'gallery', staticFiles: '/public/photos', title : 'Gallery', render : false}), routes.gallery);
+  app.engine('.ejs', ejs);
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'ejs');
+
+  app.get('/', routes.index);
+  app.get('/home', routes.index);
+  //app.get('/blog', routes.blog);
+  app.get('/talks', routes.talks);
+  app.get('/beers', routes.beers);
+  app.get('/contact', routes.contact);
+  app.get('/cv', routes.cv);
+  app.get('/gallery*', routes.gallery);
+  app.get('/talks', routes.talks);
+
+});
+
+
 
 
 app.listen(port, host, function(){
