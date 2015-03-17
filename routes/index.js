@@ -35,8 +35,6 @@ exports.contact = function(req, res){
   res.render('contact', { v: 'contact' });
 };
 exports.gallery = function(req, res){
-  console.log('gallery route')
-  console.log(req.data);
   res.render('gallery.ejs', { v : 'gallery', gallery : req.html });
 };
 
