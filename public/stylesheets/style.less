@@ -334,7 +334,8 @@ a:link, :visited, :hover, :active {
 /* 
 Ghost blog styles
 */
-.vertical {
+
+.home-template .vertical {
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -381,4 +382,18 @@ Ghost blog styles
 dl.inline dt {
   float: left;
   width: 100px;
+}
+
+body:not(.post-template) .post-title {
+  font-size: 1.8em;
+}
+
+.post-meta, .post-meta a, .post-meta time, time.post-date {
+  font-size: 1.3rem;
+  text-transform: none;
+}
+
+.post {
+  margin: 2rem auto;
+  padding-bottom: 2rem;
 }
