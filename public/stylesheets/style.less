@@ -331,11 +331,18 @@ a:link, :visited, :hover, :active {
   font-size: 1.2em;
 }
 
+/* 
+Ghost blog styles
+*/
 .vertical {
   position: absolute;
   bottom: 0px;
   width: 100%;
   margin-bottom: 25%;
+}
+
+.tag-head .vertical {
+  margin-bottom: 100px;
 }
 
 .vertical .page-description {
@@ -345,4 +352,29 @@ a:link, :visited, :hover, :active {
 .vertical h1.page-title {
   font-size: 2em;
   font-weight: 100;
+}
+
+.post-content .alignright, article .alignright, .post-content img.alignright, .post-content .alignright img,
+.post-content .alignleft, article .alignleft, .post-content img.alignleft, .post-content .alignleft img {
+  display: inline;  
+  margin-top: 4px;
+  transform: none;
+  padding: 0;
+  left: auto;
+  right: auto;
+  overflow: hidden; /* TODO hack - should fix posts with overflow issues */
+}
+
+.post-content .alignleft, article .alignleft, .post-content img.alignleft, .post-content .alignleft img {
+  float: left;
+  margin-right: 24px;
+}
+
+.post-content .alignright, article .alignright, .post-content img.alignright, .post-content .alignright img {  
+  float: right;
+  margin-left: 24px;
+}
+
+.post-content img {
+  margin-bottom: 10px;
 }
