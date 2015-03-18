@@ -22,6 +22,7 @@ host = process.env.HOSTNAME || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
 views = __dirname + '/views';
 app.use(require('less-middleware')(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
+app.use('/blog/wp-content', express.static(__dirname + '/public/wp-content'));
 app.use(bodyParser());
 
 
