@@ -23,3 +23,5 @@ cloud/fhc-debug.log
 fhc-debug.log
 cloud/npm-debug.log
 npm-debug.log
+content/data/ghost-dev.db
+content/data/ghost-prod.db
