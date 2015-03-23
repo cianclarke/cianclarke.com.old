@@ -8,10 +8,10 @@
   <h3>On Tap</h3>
   <p>Beers kegged & ready to drink</p>
   <ul>
-    <% if (beers.ontap.length === 0) { %>
+    <% if (beers['On Tap'].length === 0) { %>
       No beers on tap right now
     <% } %>
-    <% beers.ontap.forEach(function(beer){ %>
+    <% beers['On Tap'].forEach(function(beer){ %>
         <% include beer %>
     <% }); %>
   </ul>
@@ -19,10 +19,10 @@
   <h3>On Deck</h3>
   <p>Beers fermenting & ready to drink soon</p>
   <ul>
-    <% if (beers.ondeck.length === 0) { %>
+    <% if (beers['On Deck'].length === 0) { %>
       <li>No beers on deck right now</li>
     <% } %>
-    <% beers.ondeck.forEach(function(beer, idx){ %>
+    <% beers['On Deck'].forEach(function(beer, idx){ %>
         <% include beer %>
     <% }); %>
   </ul>

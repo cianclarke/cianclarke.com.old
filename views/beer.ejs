@@ -1,8 +1,11 @@
 <li>
-        <strong class="name"><%= beer.name %></strong><br />
         <% var abv = (beer.og_measured - beer.fg_measured) * 131.25; %>
+        
+        <strong class="name"><%= beer.name %></strong> <%= Math.round(abv * 100) / 100 %> %<br />
+        
+        
         <strong>OG:</strong> <%= beer.og_measured %>
-        <strong>ABV:</strong> <%= Math.round(abv * 100) / 100 %> %
+        
         <br />
         
         <strong>Grain: </strong>
