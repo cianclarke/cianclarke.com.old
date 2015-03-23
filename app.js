@@ -11,6 +11,7 @@ ejs = require('ejs').__express,
 ghost = require('ghost'),
 path = require('path');
 
+
 bodyParser = require('body-parser');
 
 http = require('http'),
@@ -26,9 +27,13 @@ app.use('/blog/wp-content', express.static(__dirname + '/public/wp-content'));
 app.use(bodyParser());
 
 
-
 ghost({ config : path.join(__dirname, 'ghostConfig.js') }).then(function (ghostServer) {
-  app.use('/blog', ghostServer.rootApp);
+  app.use('/blog', function(req, res, next){
+    if (req.path.indexOf('/ghost')>-1 && process.env.PATH.indexOf('heroku')>-1){
+      return res.send(401).end('Nope');
+    }
+    return next();
+  }, ghostServer.rootApp);
   ghostServer.start(app);
 
   // Setup the rest of the application
