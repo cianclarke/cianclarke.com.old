@@ -23,7 +23,7 @@ exports.beers = function(req, res){
     path : process.env.BS_FILE_PATH || 'https://www.dropbox.com/s/q325t9axuumefqx/Recipe.bsmx?dl=1'
   }, function(err, beers){
     if (err){
-      console.log(err);
+      return res.status(404).json({msg : 'Error loading BeerSmith beers', error : err });
     }
     
     res.render('beers', { v : 'beers', beers : beers });
