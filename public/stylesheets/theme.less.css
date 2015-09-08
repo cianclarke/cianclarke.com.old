@@ -20,3 +20,14 @@ a {
 section.info {
     background-color: #f8f8f8;
 }
+
+.post-template main.content article header.post-header > *, main article section > * {
+  margin-right: 23%;
+  display: block;
+  margin-left: 23% !important;
+}
+
+main.content article.post {
+  width: 100%;
+  max-width: none;
+}

@@ -397,3 +397,61 @@ body:not(.post-template) .post-title {
   margin: 2rem auto;
   padding-bottom: 2rem;
 }
+
+/* 
+Tweaks for full width styling
+*/
+
+.post-template main.content.actualpost article {
+    header.post-header > *, > section > *, footer > *, #disqus_thread  {
+    margin-right: 23%;
+    margin-left: 23%;
+  }
+  > section > .fluid-width-video-wrapper {
+    margin-left: 0;
+  }
+}
+
+.post-template main.content.actualpost article > section > {
+  table {
+    display: inline-block;
+  }
+}
+
+.post-template main.content article > section > .fullWidth {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main.content.actualpost article.post {
+  width: 100%;
+  max-width: none;
+}
+
+/*
+force enable scrollbars for macs
+ */
+
+ .forceScrollShow::-webkit-scrollbar {
+     -webkit-appearance: none;
+ }
+
+ .forceScrollShow::-webkit-scrollbar:vertical {
+     width: 11px;
+ }
+
+ .forceScrollShow::-webkit-scrollbar:horizontal {
+     height: 11px;
+ }
+
+ .forceScrollShow::-webkit-scrollbar-thumb {
+     border-radius: 8px;
+     border: 2px solid white; /* should match background, can't be transparent */
+     background-color: rgba(0, 0, 0, .5);
+ }
+
+ .forceScrollShow::-webkit-scrollbar-track { 
+     background-color: #fff; 
+     border-radius: 8px; 
+ } 
