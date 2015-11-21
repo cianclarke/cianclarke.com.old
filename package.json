@@ -1,5 +1,8 @@
 {
-  "name": "application-name",
+  "name": "cianclarke.com",
+  "engines" : {
+    "node" : ">=0.10.3 <=0.12"
+  },
   "version": "0.0.1",
   "private": true,
   "scripts": {
